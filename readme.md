@@ -1,3 +1,10 @@
+```bash
+python venv env
+pip install -r requirements.txt
+uvicorn main:app --reload
+``` 
+- run in http://localhost:8000
+
 # Python Image Streaming
 
 Run server
