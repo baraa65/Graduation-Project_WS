@@ -2,6 +2,7 @@
   <dictionary name="Baraa">
     <words>
       <w>baraa</w>
+      <w>nbytes</w>
       <w>websocket</w>
     </words>
   </dictionary>

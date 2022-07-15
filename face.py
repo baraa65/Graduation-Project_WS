@@ -102,3 +102,20 @@ def match(img):
             return name
 
     return None
+
+
+def detect_faces(img, match):
+    results = detector.detect_faces(img)
+
+    if len(results) > 0:
+        box = results[0]['box']
+        p1 = (box[0], box[1])
+        p2 = (box[0] + box[2], box[1] + box[3])
+        img = cv2.rectangle(img, p1, p2, (255, 10, 10))
+
+        if match is not None:
+            cv2.putText(img, match, p1, cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+        else:
+            cv2.putText(img, 'Stranger', p1, cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
+
+    return img
