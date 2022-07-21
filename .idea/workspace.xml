@@ -2,12 +2,17 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="483e223f-16d0-4ff7-b8a1-fc9e38646b66" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/audio.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/finalBoosting_model.sav" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/Baraa.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/Baraa.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/allModelv2.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fall_model1.h5" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fall_scaler.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fight_fall.py" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/fight_scaler.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/movenet/saved_model.pb" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/movenet/variables/variables.data-00000-of-00001" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/movenet/variables/variables.index" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/audio-test.py" beforeDir="false" afterPath="$PROJECT_DIR$/audio-test.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main.py" beforeDir="false" afterPath="$PROJECT_DIR$/main.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -19,15 +24,16 @@
     <session id="-781533315">
       <usages-collector id="statistics.lifecycle.project">
         <counts>
-          <entry key="project.closed" value="11" />
+          <entry key="project.closed" value="14" />
           <entry key="project.open.time.0" value="1" />
           <entry key="project.open.time.1" value="2" />
+          <entry key="project.open.time.10" value="1" />
           <entry key="project.open.time.11" value="2" />
           <entry key="project.open.time.12" value="1" />
           <entry key="project.open.time.7" value="3" />
           <entry key="project.open.time.8" value="1" />
-          <entry key="project.open.time.9" value="2" />
-          <entry key="project.opened" value="12" />
+          <entry key="project.open.time.9" value="3" />
+          <entry key="project.opened" value="14" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.open">
@@ -36,7 +42,7 @@
           <entry key="jpg" value="4" />
           <entry key="md" value="4" />
           <entry key="png" value="4" />
-          <entry key="py" value="10" />
+          <entry key="py" value="11" />
           <entry key="txt" value="1" />
         </counts>
       </usages-collector>
@@ -45,22 +51,23 @@
           <entry key="Image" value="8" />
           <entry key="Markdown" value="4" />
           <entry key="PLAIN_TEXT" value="2" />
-          <entry key="Python" value="10" />
+          <entry key="Python" value="11" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
+          <entry key="dummy" value="9" />
           <entry key="gitignore" value="4" />
           <entry key="md" value="26" />
-          <entry key="py" value="2175" />
-          <entry key="txt" value="29" />
+          <entry key="py" value="2327" />
+          <entry key="txt" value="78" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
           <entry key="Markdown" value="26" />
-          <entry key="PLAIN_TEXT" value="33" />
-          <entry key="Python" value="2175" />
+          <entry key="PLAIN_TEXT" value="91" />
+          <entry key="Python" value="2327" />
         </counts>
       </usages-collector>
     </session>
@@ -70,8 +77,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/main.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="598">
-              <caret line="28" selection-end-line="45" />
+            <state relative-caret-position="546">
+              <caret line="27" column="52" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="52" />
               <folding>
                 <element signature="e#0#27#0" expanded="true" />
               </folding>
@@ -79,11 +86,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/test.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="104">
-              <caret line="10" selection-start-line="10" selection-end-line="10" />
+            <state relative-caret-position="520">
+              <caret line="20" column="47" lean-forward="true" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -91,11 +98,11 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/audio-test.py">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/audio-recorder.py">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="390">
-              <caret line="15" selection-start-line="15" selection-end-line="15" />
+              <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
               <folding>
                 <element signature="e#0#18#0" expanded="true" />
               </folding>
@@ -106,31 +113,22 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/audio.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="569">
-              <caret line="358" column="19" selection-start-line="358" selection-start-column="19" selection-end-line="358" selection-end-column="19" />
+            <state relative-caret-position="286">
+              <caret line="21" selection-start-line="21" selection-end-line="21" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
-                <element signature="e#953#1149#0" />
-                <element signature="e#1176#1274#0" />
-                <element signature="e#1346#1982#0" />
-                <element signature="e#2028#2444#0" />
-                <element signature="e#2497#3189#0" />
-                <element signature="e#3228#3665#0" />
-                <element signature="e#3701#4093#0" />
-                <element signature="e#3701#3895#1" />
-                <element signature="e#4134#5740#0" />
-                <element signature="e#4134#4404#1" />
-                <element signature="e#5154#5715#0" />
-                <element signature="e#5775#6346#0" />
-                <element signature="e#5775#6217#1" />
-                <element signature="e#6400#8700#0" />
-                <element signature="e#7161#7172#0" />
-                <element signature="e#7309#8627#0" />
-                <element signature="e#8755#11335#0" />
-                <element signature="e#8987#9228#0" />
-                <element signature="e#9337#11315#0" />
-                <element signature="e#11361#13742#0" />
-                <element signature="e#13781#14152#0" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/fight_fall.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="13026">
+              <caret line="523" selection-start-line="523" selection-end-line="523" />
+              <folding>
+                <element signature="e#0#23#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -157,7 +155,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/face.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="494">
+            <state relative-caret-position="1274">
               <caret line="61" selection-start-line="61" selection-end-line="64" />
               <folding>
                 <element signature="e#0#9#0" expanded="true" />
@@ -191,10 +189,12 @@
       <find>stZCR</find>
       <find>stEnergy</find>
       <find>getFeature</find>
+      <find>fall_scaler</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+    <option name="PREVIEW_PUSH_PROTECTED_ONLY" value="true" />
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -202,13 +202,14 @@
         <option value="$PROJECT_DIR$/requirements.txt" />
         <option value="$PROJECT_DIR$/env/Lib/site-packages/keras_vggface/models.py" />
         <option value="$PROJECT_DIR$/fire.py" />
-        <option value="$PROJECT_DIR$/main.py" />
         <option value="$PROJECT_DIR$/.gitignore" />
         <option value="$PROJECT_DIR$/readme.md" />
         <option value="$PROJECT_DIR$/face.py" />
-        <option value="$PROJECT_DIR$/test.py" />
-        <option value="$PROJECT_DIR$/audio-test.py" />
         <option value="$PROJECT_DIR$/audio.py" />
+        <option value="$PROJECT_DIR$/audio-test.py" />
+        <option value="$PROJECT_DIR$/fight-fall.py" />
+        <option value="$PROJECT_DIR$/main.py" />
+        <option value="$PROJECT_DIR$/test.py" />
       </list>
     </option>
   </component>
@@ -232,21 +233,6 @@
               <item name="server" type="b2602c69:ProjectViewProjectNode" />
               <item name="server" type="462c0819:PsiDirectoryNode" />
             </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="audio" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="faces" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="server" type="b2602c69:ProjectViewProjectNode" />
-              <item name="server" type="462c0819:PsiDirectoryNode" />
-              <item name="service" type="462c0819:PsiDirectoryNode" />
-            </path>
           </expand>
           <select />
         </subPane>
@@ -258,11 +244,11 @@
     <property name="settings.editor.selected.configurable" value="com.jetbrains.python.configuration.PyActiveSdkModuleConfigurable" />
   </component>
   <component name="RecentsManager">
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Baraa\Desktop\opencv-streaming-master\server" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Baraa\Desktop\opencv-streaming-master\server\faces" />
     </key>
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Baraa\Desktop\opencv-streaming-master\server" />
       <recent name="C:\Users\Baraa\Desktop\opencv-streaming-master\server\faces" />
     </key>
   </component>
@@ -278,7 +264,28 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.audio-test">
+  <component name="RunManager" selected="Python.test">
+    <configuration name="audio-recorder" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <module name="server" />
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/audio-recorder.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <option name="EMULATE_TERMINAL" value="false" />
+      <option name="MODULE_MODE" value="false" />
+      <option name="REDIRECT_INPUT" value="false" />
+      <option name="INPUT_FILE" value="" />
+      <method v="2" />
+    </configuration>
     <configuration name="audio-test" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -321,7 +328,7 @@
       <option name="INPUT_FILE" value="" />
       <method v="2" />
     </configuration>
-    <configuration name="face" type="PythonConfigurationType" factoryName="Python" temporary="true">
+    <configuration name="fight-fall" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="server" />
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -333,28 +340,7 @@
       <option name="IS_MODULE_SDK" value="true" />
       <option name="ADD_CONTENT_ROOTS" value="true" />
       <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/face.py" />
-      <option name="PARAMETERS" value="" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <option name="EMULATE_TERMINAL" value="false" />
-      <option name="MODULE_MODE" value="false" />
-      <option name="REDIRECT_INPUT" value="false" />
-      <option name="INPUT_FILE" value="" />
-      <method v="2" />
-    </configuration>
-    <configuration name="main" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <module name="server" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/main.py" />
+      <option name="SCRIPT_NAME" value="C:\Users\Baraa\Desktop\opencv-streaming-master\server\fight_fall.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <option name="EMULATE_TERMINAL" value="false" />
@@ -385,19 +371,19 @@
       <method v="2" />
     </configuration>
     <list>
-      <item itemvalue="Python.main" />
       <item itemvalue="Python.test" />
-      <item itemvalue="Python.face" />
       <item itemvalue="Python.audio-test" />
       <item itemvalue="Python.audio" />
+      <item itemvalue="Python.audio-recorder" />
+      <item itemvalue="Python.fight-fall" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Python.test" />
+        <item itemvalue="Python.fight-fall" />
+        <item itemvalue="Python.audio-recorder" />
         <item itemvalue="Python.audio" />
         <item itemvalue="Python.audio-test" />
-        <item itemvalue="Python.test" />
-        <item itemvalue="Python.face" />
-        <item itemvalue="Python.main" />
       </list>
     </recent_temporary>
   </component>
@@ -419,25 +405,39 @@
       <option name="project" value="LOCAL" />
       <updated>1657876813266</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="add audio processing">
+      <created>1657886360002</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1657886360002</updated>
+    </task>
+    <task id="LOCAL-00003" summary="update requirements">
+      <created>1657886600454</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1657886600454</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="ToolWindowManager">
     <frame x="0" y="0" width="1920" height="1080" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1828125" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.0921875" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.3294271" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.57222223" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.40555555" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
       <window_info anchor="bottom" id="Version Control" order="7" show_stripe_button="false" />
-      <window_info anchor="bottom" id="Terminal" order="8" weight="0.20963542" />
+      <window_info anchor="bottom" id="Terminal" order="8" weight="0.20833333" />
       <window_info anchor="bottom" id="Event Log" order="9" side_tool="true" />
       <window_info anchor="bottom" id="Python Console" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
@@ -449,8 +449,11 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="get images from ip webcam" />
-    <option name="LAST_COMMIT_MESSAGE" value="get images from ip webcam" />
+    <MESSAGE value="add audio processing" />
+    <MESSAGE value="update requirements" />
+    <option name="LAST_COMMIT_MESSAGE" value="update requirements" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/env/Lib/site-packages/keras_vggface/models.py">
@@ -490,12 +493,43 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/test.png" />
     <entry file="file://$PROJECT_DIR$/main.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="598">
-          <caret line="28" selection-end-line="45" />
+        <state relative-caret-position="546">
+          <caret line="27" column="52" selection-start-line="27" selection-start-column="16" selection-end-line="27" selection-end-column="52" />
           <folding>
             <element signature="e#0#27#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audio-recorder.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="390">
+          <caret line="17" column="62" selection-start-line="17" selection-start-column="62" selection-end-line="17" selection-end-column="62" />
+          <folding>
+            <element signature="e#0#18#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/audio.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="286">
+          <caret line="21" selection-start-line="21" selection-end-line="21" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/fight_fall.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="13026">
+          <caret line="523" selection-start-line="523" selection-end-line="523" />
+          <folding>
+            <element signature="e#0#23#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -514,6 +548,16 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/face.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1274">
+          <caret line="61" selection-start-line="61" selection-end-line="64" />
+          <folding>
+            <element signature="e#0#9#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/readme.md">
       <provider selected="true" editor-type-id="split-provider[text-editor;markdown-preview-editor]">
         <state split_layout="SPLIT">
@@ -524,66 +568,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/test.png">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/face.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="494">
-          <caret line="61" selection-start-line="61" selection-end-line="64" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/test.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="104">
-          <caret line="10" selection-start-line="10" selection-end-line="10" />
+        <state relative-caret-position="520">
+          <caret line="20" column="47" lean-forward="true" selection-start-line="20" selection-start-column="47" selection-end-line="20" selection-end-column="47" />
           <folding>
             <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/audio.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="569">
-          <caret line="358" column="19" selection-start-line="358" selection-start-column="19" selection-end-line="358" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#9#0" expanded="true" />
-            <element signature="e#953#1149#0" />
-            <element signature="e#1176#1274#0" />
-            <element signature="e#1346#1982#0" />
-            <element signature="e#2028#2444#0" />
-            <element signature="e#2497#3189#0" />
-            <element signature="e#3228#3665#0" />
-            <element signature="e#3701#4093#0" />
-            <element signature="e#3701#3895#1" />
-            <element signature="e#4134#5740#0" />
-            <element signature="e#4134#4404#1" />
-            <element signature="e#5154#5715#0" />
-            <element signature="e#5775#6346#0" />
-            <element signature="e#5775#6217#1" />
-            <element signature="e#6400#8700#0" />
-            <element signature="e#7161#7172#0" />
-            <element signature="e#7309#8627#0" />
-            <element signature="e#8755#11335#0" />
-            <element signature="e#8987#9228#0" />
-            <element signature="e#9337#11315#0" />
-            <element signature="e#11361#13742#0" />
-            <element signature="e#13781#14152#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/audio-test.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="390">
-          <caret line="15" selection-start-line="15" selection-end-line="15" />
-          <folding>
-            <element signature="e#0#18#0" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -2,13 +2,13 @@ from fastapi import FastAPI
 from starlette.responses import HTMLResponse
 from starlette.websockets import WebSocket
 
+from fight_fall import fall_fight_model
 from fire import is_fire
 from service.visual_manipulation import grayscale, from_b64, to_b64
 
 app = FastAPI()
 
 from face import get_embedding, match
-
 import json
 
 
@@ -24,7 +24,8 @@ async def websocket_endpoint(websocket: WebSocket):
             img = from_b64(data)
             res = {
                 "face": match(img),
-                "fire": is_fire(img)
+                "fire": is_fire(img),
+                "fall": fall_fight_model().detect(),
             }
 
             print(res)

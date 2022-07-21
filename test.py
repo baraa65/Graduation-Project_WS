@@ -1,6 +1,7 @@
 import cv2
+
+from fight_fall import fall_fight_model
 from fire import is_fire
-from service.visual_manipulation import grayscale, from_b64, to_b64
 from face import get_embedding, match, detect_faces
 import urllib.request
 import numpy as np
@@ -16,7 +17,8 @@ while True:
 
     res = {
         "face": match(img),
-        "fire": is_fire(img)
+        "fire": is_fire(img),
+        "fall": fall_fight_model().detect(img),
     }
 
     img = detect_faces(img, res['face'])
