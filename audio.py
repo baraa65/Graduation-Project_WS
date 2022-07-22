@@ -366,5 +366,8 @@ while True:
     print(f'Processing {audioFile}')
     y = getResult(f'audio/{audioFile}', filename)
     print(f'Processing {audio_path}  ===>  Result: {y[0]}')
+
+    # TODO: add audio notifications
+
     processedFiles.append(audioFile)
 
