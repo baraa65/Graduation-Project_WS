@@ -118,4 +118,4 @@ def detect_faces(img, match):
         else:
             cv2.putText(img, 'Stranger', p1, cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 0, 255), 2)
 
-    return img
+    return img, len(results)
