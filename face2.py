@@ -106,6 +106,17 @@ model = tensorflow.keras.models.Model(inputs=basemodel.input, outputs=basemodel.
 
 #####
 
+def get_face_from_box(img, box, size=(224, 224)):
+    p1, p2 = box
+    x1, y1 = p1
+    x2, y2 = p2
+    face = img[y1:y2, x1:x2]
+    image = Image.fromarray(face)
+    image = image.resize(size)
+    face_array = asarray(image)
+
+    return face_array
+
 
 def get_face(img, results, size):
     if len(results) == 0:
@@ -183,13 +194,19 @@ def get_embedding(file):
 
     return res
 
+def get_emb_from_face(face):
+    start_time = time.time()
+
+    samples = asarray([face], 'float32')
+    samples = preprocess_input(samples)
+    yhat = model.predict(samples)
+
+    print("--- %s seconds --- (model)" % (time.time() - start_time))
+    return yhat
+
 
 def is_match(known_embedding, candidate_embedding, thresh=0.5):
     score = cosine(known_embedding, candidate_embedding)
-
-    # if len(known_embedding) == 0 or len(candidate_embedding) == 0: return 0.9
-
-    # res = fr.compare_faces([known_embedding], candidate_embedding)
 
     if score <= thresh:
         print('>face is a Match (%.3f <= %.3f)' % (score, thresh))
@@ -244,6 +261,27 @@ def match(img):
     # return only_boxes(img)
     return match_faces(img, faces_dict.items())
 
+def match_without_detection(img, boxes):
+    faces = [(get_face_from_box(img, box), box) for box in boxes]
+    embs = [(get_emb_from_face(face), box) for face, box in faces]
+
+    image = img
+    res = []
+
+    for img_emb, box in embs:
+        match = None
+        min_score = 1
+
+        for name, emb in faces_dict.items():
+            score = is_match(img_emb, emb)
+            if score < 0.5 and score < min_score:
+                match = name
+
+        if match is None: match = 'Stranger'
+        image = draw_box(image, box, match)
+        res.append(match)
+
+    return image, res
 
 def draw_box(img, box, name):
     p1, p2 = box
@@ -391,6 +429,8 @@ def detect_faces_media(image, match):
     image.flags.writeable = True
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
+    boxes = []
+
     if results.detections:
         for detection in results.detections:
             x1 = int(detection.location_data.relative_bounding_box.xmin*480)
@@ -403,6 +443,7 @@ def detect_faces_media(image, match):
             face = np.array([[[x1, y1], [x2, y2], [(x1 + x2) / 2, (y1 + y2) / 2]]])
             fa = tracker.track(face)
             new_ids = list(fa.keys())
+            boxes.append((p1, p2))
 
             for id in new_ids:
                 if id in person_ids:
@@ -427,4 +468,4 @@ def detect_faces_media(image, match):
         # if results.detections:
         #     im = image[y1:y2, x1:x2]
 
-    return image,check_face,length
+    return image,check_face,length, boxes

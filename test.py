@@ -2,7 +2,7 @@ import cv2
 # from fcm import send_notification
 # from fight_fall import fall_fight_model
 # from fire import is_fire
-from face2 import get_embedding, match, detect_faces, detect_faces_media
+from face2 import get_embedding, match, detect_faces, detect_faces_media, match_without_detection
 import urllib.request
 import numpy as np
 import time
@@ -17,17 +17,17 @@ res = {
 }
 
 while True:
-    # img_arr = np.array(bytearray(urllib.request.urlopen(URL).read()), dtype=np.uint8)
-    # img = cv2.imdecode(img_arr, -1)
-    ret, img = cap.read()
+    img_arr = np.array(bytearray(urllib.request.urlopen(URL).read()), dtype=np.uint8)
+    img = cv2.imdecode(img_arr, -1)
+    # ret, img = cap.read()
     img = cv2.resize(img, (480, 360))
 
     # _is_fire = is_fire(img)
     # _fall_fight = fall_fight_model().detect(img)
-    img, check_face, faces_count = detect_faces_media(img, res['face'])
+    img, check_face, faces_count, boxes = detect_faces_media(img, res['face'])
 
     if check_face:
-        img, face_matches = match(img)
+        img, face_matches = match_without_detection(img, boxes)
 
     print(face_matches)
     res = {
