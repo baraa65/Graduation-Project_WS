@@ -9,23 +9,33 @@ import time
 
 URL = "http://192.168.1.109:8080/shot.jpg"
 fps_time = 0
+cap = cv2.VideoCapture(0)
+face_matches = None
+_match = None
+res = {
+    "face": None,
+}
 
 while True:
-    img_arr = np.array(bytearray(urllib.request.urlopen(URL).read()), dtype=np.uint8)
-    img = cv2.imdecode(img_arr, -1)
+    # img_arr = np.array(bytearray(urllib.request.urlopen(URL).read()), dtype=np.uint8)
+    # img = cv2.imdecode(img_arr, -1)
+    ret, img = cap.read()
     img = cv2.resize(img, (480, 360))
 
-    img, face_matches = match(img)
     # _is_fire = is_fire(img)
     # _fall_fight = fall_fight_model().detect(img)
+    img, check_face, faces_count = detect_faces_media(img, res['face'])
 
+    if check_face:
+        img, face_matches = match(img)
+
+    print(face_matches)
     res = {
         "face": face_matches,
         # "fire": _is_fire,
         # "fall": _fall_fight,
     }
 
-    print(res)
 
     # img, faces_count = detect_faces_media(img, res['face'])
     # img, faces_count = detect_faces_media(img, '')
