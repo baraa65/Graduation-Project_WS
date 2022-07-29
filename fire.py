@@ -11,7 +11,7 @@ def is_fire(img):
     for i in (new_panda['name']):
         for j in new_panda['confidence']:
             if i == 'fire':
-                if j > 0.6:
+                if j > 0.3:
                     fire = True
 
     return fire
