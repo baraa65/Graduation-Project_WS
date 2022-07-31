@@ -17,15 +17,15 @@ res = {
 }
 
 while True:
-    img_arr = np.array(bytearray(urllib.request.urlopen(URL).read()), dtype=np.uint8)
-    img = cv2.imdecode(img_arr, -1)
-    # ret, img = cap.read()
+    # img_arr = np.array(bytearray(urllib.request.urlopen(URL).read()), dtype=np.uint8)
+    # img = cv2.imdecode(img_arr, -1)
+    ret, img = cap.read()
     img = cv2.resize(img, (480, 360))
 
     # _is_fire = is_fire(img)
     # _fall_fight = fall_fight_model().detect(img)
     img, check_face, faces_count, boxes = detect_faces_media(img, res['face'])
-
+    print(check_face)
     if check_face:
         img, face_matches = match_without_detection(img, boxes)
 

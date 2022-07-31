@@ -10,7 +10,7 @@ from scipy.spatial.distance import cosine
 # from mtcnn import MTCNN
 import cv2
 import numpy as np
-# from keras_vggface.vggface import VGGFace
+from keras_vggface.vggface import VGGFace
 # from keras_vggface.utils import preprocess_input
 preprocess_input = tensorflow.keras.applications.resnet50.preprocess_input
 
@@ -34,10 +34,10 @@ mp_drawing = mp.solutions.drawing_utils
 
 
 detector = Detector()
-# model = VGGFace(model='resnet50', include_top=False, input_shape=(224, 224, 3), pooling='avg')
+model = VGGFace(model='resnet50', include_top=False, input_shape=(224, 224, 3), pooling='avg')
 
-basemodel = tensorflow.keras.applications.ResNet50(weights='models/resnet50.h5', include_top=False, pooling="avg", input_shape=(224, 224, 3))
-model = tensorflow.keras.models.Model(inputs=basemodel.input, outputs=basemodel.output)
+# basemodel = tensorflow.keras.applications.ResNet50(weights='models/resnet50.h5', include_top=False, pooling="avg", input_shape=(224, 224, 3))
+# model = tensorflow.keras.models.Model(inputs=basemodel.input, outputs=basemodel.output)
 
 # face_detection = mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence=0.5)
 
@@ -110,6 +110,11 @@ def get_face_from_box(img, box, size=(224, 224)):
     p1, p2 = box
     x1, y1 = p1
     x2, y2 = p2
+    if x1 < 0: x1 = 0
+    if x2 < 0: x2 = 0
+    if y1 < 0: y1 = 0
+    if y2 < 0: y2 = 0
+    print(f'x1: {x1},x2: {x2},y1: {y1},y2: {y2}')
     face = img[y1:y2, x1:x2]
     image = Image.fromarray(face)
     image = image.resize(size)
@@ -417,7 +422,7 @@ class Tracker(object):
         return good_matches
 
 
-face_detection = mp_face_detection.FaceDetection(model_selection=0, min_detection_confidence=0.5)
+face_detection = mp_face_detection.FaceDetection(model_selection=1, min_detection_confidence=0.5)
 tracker = Tracker()
 person_ids = []
 def detect_faces_media(image, match):
@@ -451,6 +456,7 @@ def detect_faces_media(image, match):
                 else:
                     person_ids.append(id)
                     check_face = True
+                    print("=====================================================")
 
 
 

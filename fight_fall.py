@@ -6,21 +6,8 @@ import time
 import functools
 import joblib
 #############################
-from numpy import mean
-from numpy import std
-from numpy import dstack
-from keras.models import Sequential
-from tensorflow.keras.utils import to_categorical
-from keras.layers import Dense
-from keras.layers import Flatten
-from keras.layers import Dropout
-from keras.layers import LSTM
-from keras.layers import TimeDistributed
-from keras.layers.convolutional import Conv1D
-from keras.layers.convolutional import MaxPooling1D
-from keras.layers import ConvLSTM2D
-#from keras.utils import to_categorical
 from tensorflow.keras.models import load_model
+from fcm import send_notification
 
 embed = hub.load(r'movenet')
 print("Num GPUs Available: ", len(tf.config.list_physical_devices('GPU')))
@@ -101,7 +88,7 @@ def draw_connections1(frame, keypoints, person_label, edges, person_id):
         cv2.line(frame, (int(x1), int(y1)), (int(x2), int(y2)), color, 3)
         if i == 0:
             cv2.putText(frame, str(person_label[person_id]), (int(x1 + 10), int(y1 - 10)), cv2.FONT_HERSHEY_SIMPLEX,
-                        1, (0, 255, 0), 1, cv2.LINE_AA)
+                        0.5, (0, 255, 0), 1, cv2.LINE_AA)
             i = 1
 
 
@@ -406,7 +393,8 @@ fight_scaller = joblib.load('fight_scaler.bin')
 
 
 class Fight_Fall_detector:
-    def __init__(self, dst_thresh=60, con_thresh=0.20):
+    def __init__(self, dst_thresh=60, con_thresh=0.15):
+        self.sent = False
         self.fps_time = 0
         self.prev_head = [0, 0]
         self.prev_points = [[0, 0], [0, 0], [0, 0], [0, 0]]
@@ -475,12 +463,16 @@ class Fight_Fall_detector:
 
                         label = self.fight_model.predict(frames_fet)
 
-                        if (label[0][0] > label[0][1]) & (label[0][0] > 0.80):
+                        if (label[0][0] > label[0][1]) & (label[0][0] > 0.70)& (not self.sent):
                             if self.feture_tracker.check_fight_distance(key, pe):
+                                send_notification('Fight detected')
                                 print(f"person {key} : Kick")
-                        elif (label[0][2] > label[0][1]) & (label[0][2] > 0.85):
+                                self.sent =True
+                        elif (label[0][2] > label[0][1]) & (label[0][2] > 0.70) & (not self.sent):
                             if self.feture_tracker.check_fight_distance(key, pe):
+                                send_notification('Fight detected')
                                 print(f"person {key} : punch")
+                                self.sent = True
                         else:
                             print(f"person {key} : normal")
 
@@ -512,7 +504,7 @@ class Fight_Fall_detector:
                 ###############################end of fall
 
             cv2.putText(frame, "FPS: %f" % (1.0 / (time.time() - self.fps_time)), (10, 10),
-                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 2)
+                        cv2.FONT_HERSHEY_SIMPLEX, 0.5, (0, 255, 0), 1)
             self.fps_time = time.time()
 
             cv2.imshow('Movenet Multipose', frame)

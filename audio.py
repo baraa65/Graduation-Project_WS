@@ -9,7 +9,7 @@ import pandas as pd
 import librosa
 import librosa.display
 import pickle
-
+from fcm import send_notification
 audio_path = 'audio/out000.wav'
 filename = 'finalBoosting_model.sav'
 
@@ -368,6 +368,10 @@ while True:
     print(f'Processing {audio_path}  ===>  Result: {y[0]}')
 
     # TODO: add audio notifications
+    if y[0] == 1:
+        send_notification('gunshot sound')
+    # if y[0] == 0:
+    #     send_notification('glass breaking sound')
 
     processedFiles.append(audioFile)
 
