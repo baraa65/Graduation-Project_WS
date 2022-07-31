@@ -347,13 +347,6 @@ def getResult(pathSound, pathMode):
 def getFileName(i):
     return f'audio/out{str(i).zfill(3)}.wav'
 
-
-# for i in range(100):
-#     audio_path = getFileName(i)
-#     y = getResult(audio_path, filename)
-#
-#     print(y)
-
 currentPath = join(os.path.abspath(os.getcwd()), 'audio')
 
 processedFiles = []

@@ -2,24 +2,26 @@ import cv2
 # from fcm import send_notification
 # from fight_fall import fall_fight_model
 # from fire import is_fire
-from face2 import get_embedding, match, detect_faces, detect_faces_media, match_without_detection
+from face2 import match, detect_faces_media, match_without_detection
 import urllib.request
 import numpy as np
 import time
 
-URL = "http://192.168.1.109:8080/shot.jpg"
+from ip import get_IP
+
+URL = f'http://{get_IP()}:8080/shot.jpg'
 fps_time = 0
 cap = cv2.VideoCapture(0)
 face_matches = None
 _match = None
 res = {
-    "face": None,
+    "face": [],
 }
 
 while True:
-    # img_arr = np.array(bytearray(urllib.request.urlopen(URL).read()), dtype=np.uint8)
-    # img = cv2.imdecode(img_arr, -1)
-    ret, img = cap.read()
+    img_arr = np.array(bytearray(urllib.request.urlopen(URL).read()), dtype=np.uint8)
+    img = cv2.imdecode(img_arr, -1)
+    # ret, img = cap.read()
     img = cv2.resize(img, (480, 360))
 
     # _is_fire = is_fire(img)

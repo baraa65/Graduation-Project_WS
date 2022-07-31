@@ -2,6 +2,8 @@ import numpy as np
 import subprocess as sp
 import os, shutil
 
+from ip import get_IP
+
 folder = 'audio'
 for filename in os.listdir(folder):
     file_path = os.path.join(folder, filename)
@@ -14,7 +16,7 @@ for filename in os.listdir(folder):
         print('Failed to delete %s. Reason: %s' % (file_path, e))
 
 command = ['ffmpeg.exe',
-    "-i", r"rtsp://192.168.1.6:8080/h264_ulaw.sdp",
+    "-i", f"rtsp://{get_IP()}:8080/h264_ulaw.sdp",
     '-vn', '-acodec', 'pcm_s16le', '-ar', '44100', '-ac', '2',
     "-f", "segment", '-segment_time', '3', 'audio/out%03d.wav']
 
