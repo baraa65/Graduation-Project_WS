@@ -1,5 +1,5 @@
 import cv2
-# from fcm import send_notification
+from fcm import send_notification_async
 # from fight_fall import fall_fight_model
 # from fire import is_fire
 from face2 import match, detect_faces_media, match_without_detection
@@ -44,13 +44,13 @@ while True:
 
     # Notifications
     # if _match is not None:
-    #     send_notification('Face Match', f'{_match} has arrived')
+    #     send_notification_async('Face Match', f'{_match} has arrived')
 
     # if _match is None and faces_count > 0:
-    #     send_notification('Face Match', 'Stranger around the house')
+    #     send_notification_async('Face Match', 'Stranger around the house')
 
     # if _is_fire:
-    #     send_notification('Fire Detected', 'A fire broke out in the house')
+    #     send_notification_async('Fire Detected', 'A fire broke out in the house')
 
     # TODO: fall fight notifications
 
