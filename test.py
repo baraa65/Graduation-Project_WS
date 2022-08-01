@@ -1,7 +1,7 @@
 import cv2
 # from fcm import send_notification
-# from fight_fall import fall_fight_model
-# from fire import is_fire
+from fight_fall import fall_fight_model
+from fire import is_fire
 from face2 import match, detect_faces_media, match_without_detection
 import urllib.request
 import numpy as np
@@ -11,21 +11,32 @@ from ip import get_IP
 
 URL = f'http://{get_IP()}:8080/shot.jpg'
 fps_time = 0
-cap = cv2.VideoCapture(0)
+
+# cap = cv2.VideoCapture(0)
+# cap = cv2.VideoCapture(r"C:\Users\User\Desktop\fight_test2.mp4")
+
+
 face_matches = None
 _match = None
+_is_fire =None
+
 res = {
     "face": [],
 }
+fire_check_index = 0
 
 while True:
-    img_arr = np.array(bytearray(urllib.request.urlopen(URL).read()), dtype=np.uint8)
-    img = cv2.imdecode(img_arr, -1)
-    # ret, img = cap.read()
+    # img_arr = np.array(bytearray(urllib.request.urlopen(URL).read()), dtype=np.uint8)
+    # img = cv2.imdecode(img_arr, -1)
+    ret, img = cap.read()
     img = cv2.resize(img, (480, 360))
 
-    # _is_fire = is_fire(img)
-    # _fall_fight = fall_fight_model().detect(img)
+    fire_check_index += 1
+    if fire_check_index == 30:
+        _is_fire = is_fire(img)
+        fire_check_index = 0
+
+    _fall_fight = fall_fight_model().detect(img)
     img, check_face, faces_count, boxes = detect_faces_media(img, res['face'])
     print(check_face)
     if check_face:
@@ -34,8 +45,8 @@ while True:
     print(face_matches)
     res = {
         "face": face_matches,
-        # "fire": _is_fire,
-        # "fall": _fall_fight,
+        "fire": _is_fire,
+        "fall": _fall_fight,
     }
 
 
