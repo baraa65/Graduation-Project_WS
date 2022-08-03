@@ -40,7 +40,6 @@ INSTALLED_APPS = [
     'rest_framework',
     'images',
     'schedules',
-    'phone_numbers',
 ]
 
 MIDDLEWARE = [
