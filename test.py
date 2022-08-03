@@ -1,5 +1,5 @@
 import cv2
-from fcm import send_notification_async
+from fcm import send_notification_async,send_notification
 # from fight_fall import fall_fight_model
 # from fire import is_fire
 from face2 import match, detect_faces_media, match_without_detection
@@ -19,9 +19,9 @@ res = {
 }
 
 while True:
-    img_arr = np.array(bytearray(urllib.request.urlopen(URL).read()), dtype=np.uint8)
-    img = cv2.imdecode(img_arr, -1)
-    # ret, img = cap.read()
+    # img_arr = np.array(bytearray(urllib.request.urlopen(URL).read()), dtype=np.uint8)
+    # img = cv2.imdecode(img_arr, -1)
+    ret, img = cap.read()
     img = cv2.resize(img, (480, 360))
 
     # _is_fire = is_fire(img)
@@ -30,6 +30,7 @@ while True:
     print(check_face)
     if check_face:
         img, face_matches = match_without_detection(img, boxes)
+
 
     print(face_matches)
     res = {
@@ -43,14 +44,15 @@ while True:
     # img, faces_count = detect_faces_media(img, '')
 
     # Notifications
-    # if _match is not None:
-    #     send_notification_async('Face Match', f'{_match} has arrived')
-
+    if _match is not None:
+        send_notification('Face Match', f'{_match} has arrived')
+        break
+    #
     # if _match is None and faces_count > 0:
-    #     send_notification_async('Face Match', 'Stranger around the house')
-
-    # if _is_fire:
-    #     send_notification_async('Fire Detected', 'A fire broke out in the house')
+    #     send_notification('Face Match', 'Stranger around the house')
+    #     break
+    # # if _is_fire:
+    #     send_notification('Fire Detected', 'A fire broke out in the house')
 
     # TODO: fall fight notifications
 

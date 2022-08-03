@@ -1,16 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="483e223f-16d0-4ff7-b8a1-fc9e38646b66" name="Default Changelist" comment="&#10;.">
-      <change afterPath="$PROJECT_DIR$/fall_fight_test.py" afterDir="false" />
+    <list default="true" id="483e223f-16d0-4ff7-b8a1-fc9e38646b66" name="Default Changelist" comment="..">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/server.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/server.iml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/audio-recorder.py" beforeDir="false" afterPath="$PROJECT_DIR$/audio-recorder.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/audio.py" beforeDir="false" afterPath="$PROJECT_DIR$/audio.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/face2.py" beforeDir="false" afterPath="$PROJECT_DIR$/face2.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/fall_fight_test.py" beforeDir="false" afterPath="$PROJECT_DIR$/fall_fight_test.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/fcm.py" beforeDir="false" afterPath="$PROJECT_DIR$/fcm.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/fight_fall.py" beforeDir="false" afterPath="$PROJECT_DIR$/fight_fall.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/ip.py" beforeDir="false" afterPath="$PROJECT_DIR$/ip.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/mysite/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/mysite/settings.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/test.py" beforeDir="false" afterPath="$PROJECT_DIR$/test.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -131,7 +128,7 @@
       <recent name="C:\Users\Baraa\Desktop\opencv-streaming-master\server\faces" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.test">
+  <component name="RunManager" selected="Python.fall_fight_test">
     <configuration name="audio-recorder" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="server" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -246,8 +243,8 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="Python.test" />
         <item itemvalue="Python.fall_fight_test" />
+        <item itemvalue="Python.test" />
         <item itemvalue="Python.audio" />
         <item itemvalue="Python.audio-recorder" />
         <item itemvalue="Python.face_detector" />
@@ -322,7 +319,21 @@
       <option name="project" value="LOCAL" />
       <updated>1658769072117</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="fix face detection bug and change model">
+      <created>1659257948358</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1659257948358</updated>
+    </task>
+    <task id="LOCAL-00010" summary="..">
+      <created>1659373514687</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1659373514687</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="ToolWindowManager">
@@ -374,7 +385,9 @@
     <MESSAGE value="add TODO" />
     <MESSAGE value="fix face model" />
     <MESSAGE value="&#10;." />
-    <option name="LAST_COMMIT_MESSAGE" value="&#10;." />
+    <MESSAGE value="fix face detection bug and change model" />
+    <MESSAGE value=".." />
+    <option name="LAST_COMMIT_MESSAGE" value=".." />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/env/Lib/site-packages/keras_vggface/models.py">

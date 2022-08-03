@@ -11,4 +11,7 @@ uvicorn main:app --reload
 ```bash
 cd mysite
 python manage.py runserver
+
+for connect mobile run this :
+python manage.py runserver 0.0.0.0:8000
 ``` 
