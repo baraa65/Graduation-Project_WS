@@ -9,12 +9,16 @@ https://docs.djangoproject.com/en/3.2/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
+import sys
+
+sys.path.insert(0,r'C:\Users\User\Desktop\grad\Graduation-Project_WS')
 
 from pathlib import Path
+from ip import get_server_IP
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
-BASE_DIR = Path(__file__).resolve().parent.parent
 
+BASE_DIR = Path(__file__).resolve().parent.parent
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
@@ -25,7 +29,9 @@ SECRET_KEY = 'django-insecure-iyhyt&kgekl9%787@-77cex++_5i@z0f3v&!3n(8==hbv0g#t8
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    get_server_IP()
+]
 
 
 # Application definition
