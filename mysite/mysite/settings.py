@@ -30,6 +30,7 @@ SECRET_KEY = 'django-insecure-iyhyt&kgekl9%787@-77cex++_5i@z0f3v&!3n(8==hbv0g#t8
 DEBUG = True
 
 ALLOWED_HOSTS = [
+    "localhost",
     get_server_IP()
 ]
 
