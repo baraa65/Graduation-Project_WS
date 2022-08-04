@@ -21,6 +21,7 @@ mp_drawing = mp.solutions.drawing_utils
 
 detector = Detector()
 model = VGGFace(model='resnet50', include_top=False, input_shape=(224, 224, 3), pooling='avg')
+faces_dict = {}
 
 def get_face_from_box(img, box, size=(224, 224)):
     p1, p2 = box
@@ -99,7 +100,6 @@ def get_emb_from_face(face):
     print("--- %s seconds --- (model)" % (time.time() - start_time))
     return yhat
 
-
 def is_match(known_embedding, candidate_embedding, thresh=0.5):
     score = cosine(known_embedding, candidate_embedding)
 
@@ -111,16 +111,32 @@ def is_match(known_embedding, candidate_embedding, thresh=0.5):
     return score
 
 
-currentPath = join(os.path.abspath(os.getcwd()), 'faces')
+def getFacesFiles():
+    currentPath = join(os.path.abspath(os.getcwd()), 'mysite', 'faces')
+    faces = [f for f in listdir(join(currentPath)) if isfile(join(currentPath, f))]
+    return faces
 
-faces = [f for f in listdir(join(currentPath)) if isfile(join(currentPath, f))]
+def getFacesFilesEmb(files):
+    global faces_dict
 
-faces_dict = {}
+    faces_dict = {}
 
-for filename in faces:
-    name = filename.split('.')[0]
-    img = cv2.imread(join('faces', filename))
-    faces_dict[name], box = get_embedding(img)[0]
+    for filename in files:
+        name = filename.split('.')[0]
+        img = cv2.imread(join('mysite', 'faces', filename))
+        faces_dict[name], box = get_embedding(img)[0]
+
+def checkNewFaces():
+    files = getFacesFiles()
+    oldFaces = [key for key, value in faces_dict.items()]
+    oldFaces.sort()
+    newFaces = [filename.split('.')[0] for filename in files]
+    newFaces.sort()
+
+    if oldFaces != newFaces:
+        getFacesFilesEmb(files)
+        print('==================================== NEW FACES ============================================')
+        print(newFaces)
 
 def get_match(emb, faces):
     match = None
@@ -161,6 +177,8 @@ def match(img):
     return match_faces(img, faces_dict.items())
 
 def match_without_detection(img, boxes):
+    checkNewFaces()
+
     faces = [(get_face_from_box(img, box), box) for box in boxes]
     embs = [(get_emb_from_face(face), box) for face, box in faces]
 
