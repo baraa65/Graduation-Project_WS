@@ -112,7 +112,7 @@ def is_match(known_embedding, candidate_embedding, thresh=0.5):
 
 
 def getFacesFiles():
-    currentPath = join(os.path.abspath(os.getcwd()), 'mysite', 'faces')
+    currentPath = join(os.path.abspath(os.getcwd()), 'mysite', 'faces', 'faces')
     faces = [f for f in listdir(join(currentPath)) if isfile(join(currentPath, f))]
     return faces
 
@@ -123,7 +123,7 @@ def getFacesFilesEmb(files):
 
     for filename in files:
         name = filename.split('.')[0]
-        img = cv2.imread(join('mysite', 'faces', filename))
+        img = cv2.imread(join('mysite', 'faces', 'faces', filename))
         faces_dict[name], box = get_embedding(img)[0]
 
 def checkNewFaces():
@@ -228,7 +228,7 @@ def get_face_matrix(box):
     x2, y2 = p2
     return [[x1, y1], [x2, y2], [(x1 + x2) / 2, (y1 + y2) / 2]]
 
-def detect_faces_media(image, matches):
+def detect_faces_media(image, old_matches):
     global person_ids
     check_face = False
     image.flags.writeable = False
@@ -239,6 +239,7 @@ def detect_faces_media(image, matches):
     image = cv2.cvtColor(image, cv2.COLOR_RGB2BGR)
 
     boxes = []
+    matches = []
 
     if not results.detections: person_ids = []
 
@@ -260,8 +261,12 @@ def detect_faces_media(image, matches):
                     check_face = True
                     break
 
-        if not check_face:
+        if check_face:
+            image, matches = match_without_detection(image, boxes)
             for box, match in zip(boxes, matches):
+                draw_box(image, box, match)
+        else:
+            for box, match in zip(boxes, old_matches):
                 draw_box(image, box, match)
 
     if results.detections is None:
@@ -269,4 +274,4 @@ def detect_faces_media(image, matches):
     else:
         length = len(results.detections)
 
-    return image, check_face, length, boxes
+    return image, check_face, length, boxes, matches

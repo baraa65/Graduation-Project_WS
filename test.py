@@ -12,11 +12,16 @@ from ip import get_IP
 URL = f'http://{get_IP()}:8080/shot.jpg'
 fps_time = 0
 cap = cv2.VideoCapture(0)
-face_matches = None
+face_matches = []
 _match = None
 res = {
     "face": [],
 }
+
+last_stranger_check = time.time()
+last_face_check = time.time()
+processed_stranger = False
+processed_faces = []
 
 while True:
     img_arr = np.array(bytearray(urllib.request.urlopen(URL).read()), dtype=np.uint8)
@@ -26,10 +31,34 @@ while True:
 
     # _is_fire = is_fire(img)
     # _fall_fight = fall_fight_model().detect(img)
-    img, check_face, faces_count, boxes = detect_faces_media(img, res['face'])
+    img, check_face, faces_count, boxes, matches = detect_faces_media(img, res['face'])
     # print(check_face)
     if check_face:
-        img, face_matches = match_without_detection(img, boxes)
+        face_matches = matches
+
+        if 'Stranger' in face_matches:
+            if time.time() - last_stranger_check > 30:
+                processed_stranger = False
+
+            if not processed_stranger:
+                send_notification_async('Face Match', 'Stranger around the house', img)
+                processed_stranger = True
+                last_stranger_check = time.time()
+
+        notify_faces = []
+
+        for match in face_matches:
+            if match != 'Stranger':
+                if time.time() - last_face_check > 30:
+                    processed_faces = []
+                if match not in processed_faces:
+                    notify_faces.append(match)
+
+        if len(notify_faces) > 0:
+            send_notification_async('Face Match', f'{",".join(notify_faces)} has arrived', img)
+            last_face_check = time.time()
+            for face in notify_faces:
+                processed_faces.append(face)
 
 
     # print(face_matches)
