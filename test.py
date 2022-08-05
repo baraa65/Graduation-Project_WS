@@ -8,6 +8,7 @@ import numpy as np
 import time
 
 from ip import get_IP
+from schedules import get_schedules
 
 URL = f'http://{get_IP()}:8080/shot.jpg'
 fps_time = 0
@@ -22,6 +23,9 @@ last_stranger_check = time.time()
 last_face_check = time.time()
 processed_stranger = False
 processed_faces = []
+
+people_who_arrived = []
+behind_schedule_people = []
 
 while True:
     img_arr = np.array(bytearray(urllib.request.urlopen(URL).read()), dtype=np.uint8)
@@ -49,6 +53,7 @@ while True:
 
         for match in face_matches:
             if match != 'Stranger':
+                people_who_arrived.append(match)
                 if time.time() - last_face_check > 30:
                     processed_faces = []
                 if match not in processed_faces:
@@ -59,6 +64,13 @@ while True:
             last_face_check = time.time()
             for face in notify_faces:
                 processed_faces.append(face)
+
+    schedules = get_schedules()
+
+    for s_time, name, is_time_passed in schedules:
+        if is_time_passed and name not in people_who_arrived and name not in behind_schedule_people:
+            send_notification_async('Behind ٍSchedule', f'{name} did\'t come to house on time')
+            behind_schedule_people.append(name)
 
 
     # print(face_matches)
