@@ -24,6 +24,6 @@ from mysite import settings
 
 urlpatterns = [
     path('api/v1/images/', include('images.urls')),
-    path('api/v1/schedules/', include('schedules.urls')),
+    path('api/v1/schedules/', include('arrive_schedules.urls')),
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

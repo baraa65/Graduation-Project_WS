@@ -47,7 +47,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'rest_framework',
     'images',
-    'schedules',
+    'arrive_schedules',
 ]
 
 MIDDLEWARE = [
